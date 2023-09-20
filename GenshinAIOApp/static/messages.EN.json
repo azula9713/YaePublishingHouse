@@ -1,0 +1,6 @@
+{
+  "signOut": "Sign Out Successfully!",
+  "signOutError": "Error Signing Out!",
+  "errorFetchingUser": "An error occurred while fetching user data!",
+  "errorFetchingCharacters": "An error occurred while fetching characters!"
+}

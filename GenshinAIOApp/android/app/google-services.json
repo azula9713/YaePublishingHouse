@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "490220612649",
+    "project_id": "genshinaioapp",
+    "storage_bucket": "genshinaioapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490220612649:android:89658f3321ffae3beb0038",
+        "android_client_info": {
+          "package_name": "com.azuladevcorner.genshinaioapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490220612649-7h9m6f0o992bh8nasa976gj1rbrij5md.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.azuladevcorner.genshinaioapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "490220612649-hl6pm09a83si1n0jiosi3p263pchs5ub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6f7rU04NDCyhjA1A-VXrQFXARAu7O90A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490220612649-hl6pm09a83si1n0jiosi3p263pchs5ub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
