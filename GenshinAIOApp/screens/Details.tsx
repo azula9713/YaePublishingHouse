@@ -14,6 +14,7 @@ import {RootStackParams} from '../navigation/RootStackParams';
 import {IBaseCharacter} from '../interfaces/CharacterInterface';
 import {IBuild} from '../interfaces/BuildsInterface';
 import getCharacterBuilds from '../services/Firestore/BuildServices';
+import elementColorPicker from '../utils/ElementColorPicker';
 
 type DetailsRouteProp = RouteProp<RootStackParams, 'Details'>;
 
@@ -23,68 +24,6 @@ type Props = {
 
 export default function Details({route}: Props) {
   const basicCharacterInfo: IBaseCharacter = route.params.character;
-
-  const mainStats = [
-    {
-      slot: 'Sands',
-      stats: 'ATK%',
-    },
-    {
-      slot: 'Goblet',
-      stats: 'Anemo DMG',
-    },
-    {
-      slot: 'Circlet',
-      stats: 'CRIT DMG / CRIT Rate',
-    },
-  ];
-
-  const subStats = [
-    {stats: ['Crit Rate', 'Crit Damage'], rank: 1},
-    {stats: ['ATK%'], rank: 2},
-    {stats: ['Energy Recharge'], rank: 3},
-    {stats: ['EM'], rank: 4},
-  ];
-
-  const talentPriority = {
-    talents: [
-      {
-        name: 'Skill',
-        rank: 1,
-      },
-      {
-        name: 'Normal Attack',
-        rank: 2,
-      },
-      {
-        name: 'Burst',
-        rank: 3,
-      },
-    ],
-    notes: '',
-  };
-
-  const specialNotes = {
-    weaponNotes: [
-      {
-        name: 'Lost Prayer to the Sacred Winds',
-        notes:
-          'In teams where Shikanoin Heizou and Bennett are used in the same team, this weapon is better than Skyward Atlas.',
-      },
-      {
-        name: 'The Widsith',
-        notes:
-          'The Widsith provides the highest possible critical hit single strike damage for Heizou. However, its long cooldown leads it to lack consistency, and it has a chance of obtaining the relatively useless EM buff for Anemo DPS Heizou.',
-      },
-    ],
-    artifactNotes: [
-      {
-        name: 'Viridescent Venerer (4)',
-        notes:
-          "This is both Shikanoin Heizou's best personal damage set, and his best set for supporting the team.",
-      },
-    ],
-  };
 
   const [selectedRole, setSelectedRole] = useState('');
   const [characterBuilds, setCharacterBuilds] = useState<IBuild[]>([]);
@@ -123,7 +62,7 @@ export default function Details({route}: Props) {
   if (selectedBuild?.roleName) {
     return (
       <View className="w-full flex items-center justify-start bg-black h-full">
-        <View className="w-full flex flex-row items-center justify-between">
+        <View className="w-full flex flex-row items-center justify-between py-2">
           <Image
             source={{uri: basicCharacterInfo.splashUrl}}
             style={{
@@ -145,6 +84,7 @@ export default function Details({route}: Props) {
         <ScrollView className="h-full">
           <View className="w-full flex items-start justify-start py-2 px-4 h-full">
             <RoleSummary
+              bgColor={elementColorPicker(basicCharacterInfo.element.name)}
               role={selectedRole}
               roleDescription={selectedBuild.description}
             />
@@ -153,10 +93,13 @@ export default function Details({route}: Props) {
             <MainStats mainStats={selectedBuild.mainStats} />
             <SubStats subStats={selectedBuild.subStats} />
             <TalenPriority talents={selectedBuild.talentPriority} />
-            <SpecialNotes
-              weaponNotes={selectedBuild.specialNotes.weaponNotes}
-              artifactNotes={selectedBuild.specialNotes.artifactNotes}
-            />
+            {selectedBuild?.specialNotes?.weaponNotes.length > 0 ||
+            selectedBuild?.specialNotes?.artifactNotes.length > 0 ? (
+              <SpecialNotes
+                weaponNotes={selectedBuild.specialNotes.weaponNotes}
+                artifactNotes={selectedBuild.specialNotes.artifactNotes}
+              />
+            ) : null}
           </View>
         </ScrollView>
       </View>
