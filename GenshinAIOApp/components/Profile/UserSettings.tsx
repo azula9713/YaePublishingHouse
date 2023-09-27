@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, ToastAndroid} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ToastAndroid,
+  Linking,
+} from 'react-native';
 import {useRecoilState, useRecoilValue, useSetRecoilState} from 'recoil';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -87,10 +93,25 @@ export default function UserSettings({
         </View>
       </SettingSection>
       <SettingSection title="Application">
-        <View className="flex flex-col items-start justify-start mt-2 w-full">
+        <TouchableOpacity className="flex flex-col items-start justify-start mt-2 w-full">
           <TouchableOpacity className="flex flex-row items-center justify-between px-4 w-full bg-gray-700 py-2 rounded-lg my-1">
             <Text className="text-white text-lg font-bold">Display Mode</Text>
             <Icon name="moon" size={20} className="text-gray-400" solid />
+          </TouchableOpacity>
+          <TouchableOpacity
+            className="flex flex-row items-center justify-between px-4 w-full bg-gray-700 py-2 rounded-lg my-1"
+            onPress={() => {
+              //show a toast saying only available in premium
+              ToastAndroid.show(
+                'This feature is available for premium users only',
+                ToastAndroid.SHORT,
+              );
+            }}>
+            <Text className="text-white text-lg font-bold">Theme Color</Text>
+            <View
+              className="w-7 h-7 rounded-lg"
+              style={{backgroundColor: '#9333EA'}}
+            />
           </TouchableOpacity>
           <TouchableOpacity className="flex flex-row items-center justify-between px-4 w-full bg-gray-700 py-2 rounded-lg my-1">
             <Text className="text-white text-lg font-bold">Language</Text>
@@ -98,9 +119,9 @@ export default function UserSettings({
           </TouchableOpacity>
           <View className="flex flex-row items-center justify-between px-4 w-full bg-gray-700 py-2 rounded-lg my-1">
             <Text className="text-white text-lg font-bold">Version</Text>
-            <Text className="text-gray-400 text-lg ml-2">1.0.0</Text>
+            <Text className="text-gray-400 text-lg ml-2">0.0.1 beta</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </SettingSection>
       <SettingSection title="Support">
         <View className="flex flex-col items-start justify-start mt-2 w-full">
@@ -108,7 +129,14 @@ export default function UserSettings({
             <Text className="text-white text-lg font-bold">Report a bug</Text>
             <Icon name="bug" size={20} className="text-gray-400" />
           </TouchableOpacity>
-          <TouchableOpacity className="flex flex-row items-center justify-between px-4 w-full bg-gray-700 py-2 rounded-lg my-1">
+          <TouchableOpacity
+            className="flex flex-row items-center justify-between px-4 w-full bg-gray-700 py-2 rounded-lg my-1"
+            //open email app with pre-filled email
+            onPress={() => {
+              Linking.openURL(
+                'mailto: support@yaepublishinghouse.me?subject=Genshin Impact AIO Support',
+              );
+            }}>
             <Text className="text-white text-lg font-bold">Contact us</Text>
             <Icon name="envelope" size={20} className="text-gray-400" solid />
           </TouchableOpacity>

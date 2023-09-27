@@ -13,7 +13,7 @@ export default function ToggleButton({btnIcon, isActivated, btnAction}: Props) {
   return (
     <TouchableOpacity
       className={`${
-        isActivated ? 'bg-purple-600 opacity-100' : 'bg-purple-400 opacity-50'
+        isActivated ? 'bg-[#9333EA] opacity-100' : 'bg-[#C084FC] opacity-50'
       } rounded-lg p-1 m-1`}
       onPress={btnAction}>
       {/* <Text className="text-white text-lg">{btnText}</Text> */}
