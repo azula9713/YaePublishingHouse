@@ -23,7 +23,7 @@ type Props = {
   navigation: HomeScreenNavigationProp;
 };
 
-function CharacterBuilds({navigation}: Props) {
+function Characters({navigation}: Props) {
   const [allCharacters, setAllCharacters] = useState([]);
   const [elementalCharacters, setElementalCharacters] = useState([]);
   const selectedElement = useRecoilValue(selectedElementAtom);
@@ -70,9 +70,7 @@ function CharacterBuilds({navigation}: Props) {
   return (
     <View className="bg-black h-full flex items-center justify-start px-4 pt-4">
       <View className="flex flex-row items-center justify-between">
-        <Text className="text-2xl font-bold text-white w-3/4">
-          Character Builds
-        </Text>
+        <Text className="text-2xl font-bold text-white w-3/4">Characters</Text>
         {/* create two buttons with icons to toggle between list view and detail view */}
         <View className="flex flex-row items-center justify-end w-1/4">
           <ToggleButton
@@ -124,4 +122,4 @@ function CharacterBuilds({navigation}: Props) {
   );
 }
 
-export default CharacterBuilds;
+export default Characters;

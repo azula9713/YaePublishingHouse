@@ -12,7 +12,7 @@ type Props = {
 
 export default function SubStats({subStats}: Props) {
   return (
-    <CharacterDataSectionLayout bgColor="#333333" title="Sub Stats">
+    <CharacterDataSectionLayout bgColor="#1d1d1d" title="Sub Stats">
       <View className="flex flex-row flex-wrap">
         {subStats.map((subStat, index) => (
           <View

@@ -16,7 +16,7 @@ type Props = {
 
 export default function SpecialNotes({weaponNotes, artifactNotes}: Props) {
   return (
-    <CharacterDataSectionLayout bgColor="#333333" title="Special Notes">
+    <CharacterDataSectionLayout bgColor="#1d1d1d" title="Special Notes">
       <View className="w-full flex flex-row items-start justify-start">
         {/* weapon notes */}
         <View className="w-full flex flex-col items-start justify-start">

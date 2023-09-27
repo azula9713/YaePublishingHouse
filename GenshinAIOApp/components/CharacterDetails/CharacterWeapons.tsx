@@ -10,7 +10,7 @@ type Props = {
 
 export default function CharacterWeapons({weapons}: Props) {
   return (
-    <CharacterDataSectionLayout bgColor="#333333" title="Weapons">
+    <CharacterDataSectionLayout bgColor="#1d1d1d" title="Weapons">
       <View>
         {weapons.map((weapon, index) => (
           <View

@@ -3,7 +3,7 @@ import {
   createStackNavigator,
 } from '@react-navigation/stack';
 
-import CharacterBuilds from '../screens/CharacterBuilds';
+import Characters from '../screens/Characters';
 import Details from '../screens/Details';
 import {RootStackParams} from './RootStackParams';
 
@@ -14,7 +14,7 @@ export default function StackNavigator() {
     <Stack.Navigator>
       <Stack.Screen
         name="Home"
-        component={CharacterBuilds}
+        component={Characters}
         options={() => ({
           headerShown: false,
           animationEnabled: true,

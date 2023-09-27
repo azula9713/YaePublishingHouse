@@ -10,7 +10,7 @@ type Props = {
 
 export default function CharacterArtifacts({artifacts}: Props) {
   return (
-    <CharacterDataSectionLayout bgColor="#333333" title="Artifacts">
+    <CharacterDataSectionLayout bgColor="#1d1d1d" title="Artifacts">
       <View>
         {artifacts.map((artifact, index) => (
           <View
@@ -21,7 +21,7 @@ export default function CharacterArtifacts({artifacts}: Props) {
                 ? '~='
                 : artifact.rank + `.`}
             </Text>
-            <Text className="text-white text-lg">
+            <Text className="text-white text-lg max-w-[75%]">
               {artifact.name}
               {artifact.hasNote && (
                 <Text className="text-white text-lg"> *</Text>

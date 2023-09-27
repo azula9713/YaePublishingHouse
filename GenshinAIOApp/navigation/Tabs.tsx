@@ -18,7 +18,7 @@ export default function Tabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Builds"
+        name="Characters"
         component={StackNavigator}
         options={{
           tabBarIcon: ({size, focused}) => (

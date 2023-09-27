@@ -93,8 +93,8 @@ export default function Details({route}: Props) {
             <MainStats mainStats={selectedBuild.mainStats} />
             <SubStats subStats={selectedBuild.subStats} />
             <TalenPriority talents={selectedBuild.talentPriority} />
-            {selectedBuild?.specialNotes?.weaponNotes.length > 0 ||
-            selectedBuild?.specialNotes?.artifactNotes.length > 0 ? (
+            {selectedBuild?.specialNotes?.weaponNotes?.length > 0 ||
+            selectedBuild?.specialNotes?.artifactNotes?.length > 0 ? (
               <SpecialNotes
                 weaponNotes={selectedBuild.specialNotes.weaponNotes}
                 artifactNotes={selectedBuild.specialNotes.artifactNotes}

@@ -12,11 +12,11 @@ type Props = {
 
 export default function MainStats({mainStats}: Props) {
   return (
-    <CharacterDataSectionLayout bgColor="#333333" title="Main Stats">
-      <View>
+    <CharacterDataSectionLayout bgColor="#1d1d1d" title="Main Stats">
+      <View className="w-full">
         {mainStats.map((mainStat, index) => (
           <View
-            className="w-full flex flex-row items-start justify-start"
+            className="w-max flex flex-row items-start justify-start max-w-[75%]"
             key={index}>
             <Text className="text-white text-lg mr-2">{mainStat.slot}:</Text>
             <Text className="text-white text-lg">{mainStat.stats}</Text>

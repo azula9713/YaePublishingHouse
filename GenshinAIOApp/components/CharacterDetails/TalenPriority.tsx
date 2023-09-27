@@ -10,7 +10,7 @@ type Props = {
 
 export default function TalenPriority({talents}: Props) {
   return (
-    <CharacterDataSectionLayout bgColor="#333333" title="Talent Priority">
+    <CharacterDataSectionLayout bgColor="#1d1d1d" title="Talent Priority">
       <View>
         {talents.talents.map((talent, index) => (
           <View
